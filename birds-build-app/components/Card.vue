@@ -1,11 +1,13 @@
 <script setup>
 import Img from "@assets/Image.png";
 import Fav from "@assets/fav.png";
+import Geo from "@assets/geo.png";
+
 </script>
 
 <template>
-  <div class="border-light-border border rounded-[20px] flex">
-    <div class="pt-[19px] pl-[19px] flex">
+  <div class="border-light-border border rounded-[20px] flex max-w-[1166px] h-[366px]">
+    <div class="pt-[19px] pl-[19px] flex flex-1">
       <div class="w-64 min-w-[16rem] h-64 rounded-[10px] overflow-hidden">
         <img :src="Img" alt="" class="w-full h-full" />
       </div>
@@ -14,15 +16,18 @@ import Fav from "@assets/fav.png";
         <h4 class="font-medium text-[15px] mt-[14px] tracking-[0.05px]">
           Пиломатериалы брус доска
         </h4>
-        <span class="text-[13px] leading-[13px]">Санкт-Петербург, Красное Село</span>
-        <div>
-          <span class="text-light-gray text-[13px] leading-[13px]"
+        <Spacer y=27 />
+        <span class="relative text-[13px] leading-[13px] py-[5px] inline-flex items-center bg-light-gray pl-[27px] pr-2">
+          <img :src="Geo" alt="geo" class="absolute left-[7.5px]">
+          Санкт-Петербург, Красное Село</span>
+        <div class="mt-[9px] text-[13px]">
+          <span class="text-light-gray leading-[13px] mr-[2px]"
             >Продавец
           </span>
           Торговый Дом ГОСТ
         </div>
-        <div>
-          <span class="text-light-gray text-[13px] leading-[13px]"
+        <div class="bg-light-gray inline-block p-[5px] pl-[9px] pr-[7px] mt-[9px] text-[13px] rounded-[10px]">
+          <span class="text-light-gray  leading-[13px]"
             >Вид товара</span
           >
           <p>Стройматериалы</p>
@@ -39,25 +44,25 @@ import Fav from "@assets/fav.png";
       </div>
     </div>
 
-    <div class="min-w-[314px]">
-      <div>
-        <p class="text-5 leading-5 font-medium">33 000 ₽</p>
-        <div>
-          <span class="text-light-gray text-[13px] leading-[13px]"
+    <div class="min-w-[313px] border-l rounded-[20px] p-5 pr-[19px] flex flex-col justify-between">
+      <div class="flex flex-col justify-between">
+        <p class="text-xl leading-5 font-medium">33 000 ₽</p>
+        <div class="flex mt-[13px] text-[13px] justify-between">
+          <span class="text-light-gray leading-[13px]"
             >Количество</span
           >
-          <p>3 шт.</p>
+          <p class="leading-[1]">3 шт.</p>
         </div>
-        <div>
-          <span class="text-light-gray text-[13px] leading-[13px]"
+        <div class="flex justify-between mt-[11px] text-[13px]">
+          <span class="text-light-gray leading-[13px]"
             >Стоимость за штуку</span
           >
-          <p>11 000 ₽</p>
+          <span class="leading-[13px]">11 000 ₽</span>
         </div>
       </div>
-      <div>
-        <button>Добавить в сделки</button>
-        <button><img :src="Fav" alt="" /></button>
+      <div class="flex justify-between">
+        <button class="text-[15px] h-[50px] px-[35px] pt-[5px] tracking-[0.2px] bg-light-gray rounded-[10px]">Добавить в сделки</button>
+        <button class="bg-light-gray rounded-[10px] w-[50px] flex items-center justify-center"><img :src="Fav" alt="" style="transform: translate(-1px, 3px)" /></button>
       </div>
     </div>
   </div>
