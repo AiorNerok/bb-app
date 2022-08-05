@@ -650,6 +650,11 @@
     "estree-walker" "^2.0.1"
     "picomatch" "^2.2.2"
 
+"@tailwindcss/line-clamp@^0.4.0":
+  "integrity" "sha512-HQZo6gfx1D0+DU3nWlNLD5iA6Ef4JAXh0LeD8lOGrJwEDBwwJNKQza6WoXhhY1uQrxOuU8ROxV7CqiQV4CoiLw=="
+  "resolved" "https://registry.npmjs.org/@tailwindcss/line-clamp/-/line-clamp-0.4.0.tgz"
+  "version" "0.4.0"
+
 "@trysound/sax@0.2.0":
   "integrity" "sha512-L7z9BgrNEcYyUYtF+HaEfiS5ebkh9jXqbszz7pC0hRBPaatV0XjSD3+eHrpqFemQfgwiFF0QPIarnIihIDn7OA=="
   "resolved" "https://registry.npmjs.org/@trysound/sax/-/sax-0.2.0.tgz"
@@ -2032,6 +2037,11 @@
   "integrity" "sha512-1HQ2M2sPtxwnvOvT1ZClHyQDiggdNjURWpY2we6aMKCQiUVxTmVs2UYPLIrD84sS+kMdUwfBSylbJPwNnBrnHQ=="
   "resolved" "https://registry.npmjs.org/es-module-lexer/-/es-module-lexer-0.9.3.tgz"
   "version" "0.9.3"
+
+"esbuild-windows-64@0.14.53":
+  "integrity" "sha512-s9skQFF0I7zqnQ2K8S1xdLSfZFsPLuOGmSx57h2btSEswv0N0YodYvqLcJMrNMXh6EynOmWD7rz+0rWWbFpIHQ=="
+  "resolved" "https://registry.npmjs.org/esbuild-windows-64/-/esbuild-windows-64-0.14.53.tgz"
+  "version" "0.14.53"
 
 "esbuild@^0.14.27", "esbuild@^0.14.47", "esbuild@^0.14.49", "esbuild@>=0.13":
   "integrity" "sha512-ohO33pUBQ64q6mmheX1mZ8mIXj8ivQY/L4oVuAshr+aJI+zLl+amrp3EodrUNDNYVrKJXGPfIHFGhO8slGRjuw=="
@@ -4688,7 +4698,7 @@
     "portfinder" "^1.0.26"
     "replace-in-file" "^6.1.0"
 
-"tailwindcss@*", "tailwindcss@^3.1.6", "tailwindcss@1 || 2 || 2.0.1-compat || 3":
+"tailwindcss@*", "tailwindcss@^3.1.6", "tailwindcss@>=2.0.0 || >=3.0.0 || >=3.0.0-alpha.1", "tailwindcss@1 || 2 || 2.0.1-compat || 3":
   "integrity" "sha512-r7mgumZ3k0InfVPpGWcX8X/Ut4xBfv+1O/+C73ar/m01LxGVzWvPxF/w6xIUPEztrCoz7axfx0SMdh8FH8ZvRQ=="
   "resolved" "https://registry.npmjs.org/tailwindcss/-/tailwindcss-3.1.7.tgz"
   "version" "3.1.7"
