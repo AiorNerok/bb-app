@@ -8,5 +8,9 @@ export default defineNuxtConfig({
     },
     alias: {
         '@assets': './assets'
-    }
+    }, 
+    buildModules: [
+        '@pinia/nuxt',
+    ],
+
 })

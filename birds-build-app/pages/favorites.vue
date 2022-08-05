@@ -1,3 +1,7 @@
 <script setup></script>
 
-<template>favorites</template>
+<template>
+    <div>
+        favorites
+    </div>
+</template>

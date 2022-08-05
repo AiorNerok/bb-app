@@ -1,4 +1,12 @@
-<script setup></script>
+<script setup>
+import { useStore } from '~/store'
+
+const store = useStore()
+
+</script>
+
 <template>
-  <Card />
+  <div>
+    <!-- <Card v-for="i in store.data" /> -->some
+  </div>
 </template>

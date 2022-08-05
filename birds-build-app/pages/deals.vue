@@ -1,3 +1,7 @@
 <script setup></script>
 
-<template>deals</template>
+<template>
+    <div>
+        deals
+    </div>
+</template>

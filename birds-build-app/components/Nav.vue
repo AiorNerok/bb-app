@@ -3,6 +3,8 @@ import Fav from "@assets/fav.png";
 import Deals from "@assets/deals.png";
 import Stock from "@assets/stock.png";
 
+const { path } = useRoute()
+
 const arr_links = [
   {
     to: "/favorites",
@@ -26,13 +28,11 @@ const arr_links = [
   <header class="mt-5 text-right">
     <nav class="inline-block">
       <ul class="flex flex-row list-none">
-        <li v-for="link in arr_links">
-          <NuxtLink
-            :to="link.to"
-            class="flex items-center justify-end flex-col min-w-[86px] h-[50px] text-[13px] leadind-[13px] bg-light-gray pb-[5px] rounded-lg"
-          >
-            <img :src="link.icon" alt="" />
-            {{ link.label }}
+        <li v-for="{ to, icon, label } in arr_links">
+          <NuxtLink :to="to" :class="{ 'bg-light-gray': path === to }"
+            class="flex items-center justify-end flex-col min-w-[86px] h-[50px] text-[13px] leadind-[13px] pb-[5px] rounded-lg">
+            <img :src="icon" alt="" />
+            {{ label }}
           </NuxtLink>
         </li>
       </ul>
