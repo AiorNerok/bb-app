@@ -1,10 +1,26 @@
 <script setup>
-
+import { useStore } from '~/store'
 const props = defineProps({
   objprops: Object
 })
 
-const { implementation_type, label, address, seller, product_type, desc, price, currency, count } = props.objprops
+const { _id, implementation_type, label, address, seller, product_type, desc, price, currency, count } = props.objprops
+
+const store = useStore()
+
+const toDeals = (id) => {
+  const idx = store.data.findIndex(el => el._id === id)
+  const d = store.data[idx]
+
+  store.setDeals(d)
+}
+
+const toFav = (id) => {
+  const idx = store.data.findIndex(el => el._id === id)
+  const d = store.data[idx]
+
+  store.setFav(d)
+}
 
 </script>
 
@@ -50,11 +66,11 @@ const { implementation_type, label, address, seller, product_type, desc, price, 
         </div>
       </div>
       <div class="flex justify-between">
-        <button @click="toDeals"
+        <button @click="toDeals(_id)"
           class="text-[15px] h-[50px] px-[35px] pt-[5px] tracking-[0.2px] bg-light-gray rounded-[10px]">
           Добавить в сделки
         </button>
-        <button class="bg-light-gray rounded-[10px] w-[50px] flex items-center justify-center">
+        <button class="bg-light-gray rounded-[10px] w-[50px] flex items-center justify-center" @click="toFav(_id)">
           <img src="~/assets/fav.png" alt="" style="transform: translate(-1px, 3px)" />
         </button>
       </div>

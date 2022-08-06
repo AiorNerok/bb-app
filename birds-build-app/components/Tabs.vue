@@ -29,9 +29,7 @@ const filter_tabs = [
 function setFilterKey(id) {
   const idx = filter_tabs.findIndex(i => i.id === id);
   
-  store.$patch((store) => {
-    store.filterKey = filter_tabs[idx].origin
-  })
+  store.setFilterKey(filter_tabs[idx].origin)
 }
 
 </script>

@@ -7,7 +7,7 @@ const inputValue = ref('')
 
 const store = useStore()
 
-watch(inputValue, () => store.$patch({ searchValue: inputValue.value }))
+watch(inputValue, () => store.setSearchKey(inputValue.value))
 
 </script>
 

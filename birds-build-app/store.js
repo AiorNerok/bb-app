@@ -1,41 +1,40 @@
-import { ref } from 'vue'
 import { defineStore } from 'pinia'
 
 import db from './assets/db.json'
 
-const state = () => ref({
-    data: db,
-    deals: [],
-    fav: [],
-    filterKey: '',
-    searchValue: ''
-})
+export const useStore = defineStore('storeData', {
+    state: () => ({
+        data: db,
+        deals: [],
+        fav: [],
+        filterKey: '',
+        searchValue: ''
+    }),
+    getters: {
+        getFilteredData() {
+            let arr = [...this.data]
+            if (!!this.filterKey) {
+                arr = arr.filter(el => el.implementation_type.toLowerCase() === this.filterKey.toLowerCase())
+            }
 
-
-const getters = () => ({
-    all({ data, filterKey, searchValue }) {
-        let returnData = []
-
-        if (filterKey === "") {
-            returnData = data
-        } else {
-            returnData = data.filter((i) => i.implementation_type === filterKey)
+            if (!!this.searchValue) {
+                arr = arr.filter(el => el.label.toLowerCase().includes(this.searchValue.toLowerCase()))
+            }
+            return arr
         }
-
-        if (searchValue === "") {
-        } else {
-            returnData = data.filter((i) => i.label.toLowerCase().startsWith(searchValue.toLowerCase()))
-        }
-        return data
     },
-    getFilterKey: (state) => state.filterKey
-})
-
-const action = () => ({
-    setFilterKey: (val) => {
-        state.filterKey = val
+    actions: {
+        setDeals(v) {
+            this.deals = [...this.deals, v]
+        },
+        setFav(v) {
+            this.fav = [...this.fav, v]
+        },
+        setFilterKey(v) {
+            this.filterKey = v
+        },
+        setSearchKey(v) {
+            this.searchValue = v
+        }
     }
 })
-
-// @ts-ignore
-export const useStore = defineStore('storeData', { state, getters, action })
