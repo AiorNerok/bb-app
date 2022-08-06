@@ -3,14 +3,14 @@ import { useStore } from '~/store'
 
 const store = useStore()
 
-const { fav } = store
-
-
+const DataOnRender = computed(() => {
+    return store.getFilteredFav
+})
 
 </script>
 
 <template>
     <div>
-        <Card v-for="i in fav" :key="i._id" :objprops="i" />
+        <Card v-for="i in DataOnRender" :key="i._id" :objprops="i" />
     </div>
 </template>

@@ -9,6 +9,7 @@ const store = useStore()
 
 watch(inputValue, () => store.setSearchKey(inputValue.value))
 
+
 </script>
 
 <template>

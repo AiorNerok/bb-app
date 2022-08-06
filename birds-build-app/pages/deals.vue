@@ -1,16 +1,16 @@
 <script setup>
+import { computed } from 'vue'
 import { useStore } from '~/store'
 
 const store = useStore()
 
-const { deals } = store
-
-
-
+const DataOnRender = computed(() => {
+    return store.getFilteredDeals
+})
 </script>
 
 <template>
     <div>
-        <Card v-for="i in deals" :key="i._id" :objprops="i" />
+        <Card v-for="i in DataOnRender" :key="i._id" :objprops="i" />
     </div>
 </template>

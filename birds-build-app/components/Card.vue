@@ -8,19 +8,13 @@ const { _id, implementation_type, label, address, seller, product_type, desc, pr
 
 const store = useStore()
 
-const toDeals = (id) => {
+const pullOutData = (id) => {
   const idx = store.data.findIndex(el => el._id === id)
-  const d = store.data[idx]
-
-  store.setDeals(d)
+  return store.data[idx]
 }
 
-const toFav = (id) => {
-  const idx = store.data.findIndex(el => el._id === id)
-  const d = store.data[idx]
-
-  store.setFav(d)
-}
+const toDeals = (id) => store.setDeals(pullOutData(id))
+const toFav = (id) => store.setFav(pullOutData(id))
 
 </script>
 
