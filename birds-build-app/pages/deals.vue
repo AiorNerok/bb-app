@@ -1,7 +1,14 @@
-<script setup></script>
+<script setup>
+import {useStore} from '~/store'
+
+const store = useStore()
+
+const {deals} = store
+
+</script>
 
 <template>
     <div>
-        deals
+        <Card v-for="i in deals"/>
     </div>
 </template>

@@ -1,9 +1,12 @@
 <script setup>
+
 import Fav from "@assets/fav.png";
 import Deals from "@assets/deals.png";
 import Stock from "@assets/stock.png";
 
-const { path } = useRoute()
+const route = useRoute()
+
+const path = computed(() => route.path)
 
 const arr_links = [
   {

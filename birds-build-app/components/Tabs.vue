@@ -16,7 +16,7 @@ const filter_tabs = [
   {
     id: 1,
     label: "Прямые продажи",
-    origin: "Прямые продажи"
+    origin: "Разовая продажа"
   },
   {
     id: 2,

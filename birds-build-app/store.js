@@ -1,10 +1,12 @@
-import {ref} from 'vue'
+import { ref } from 'vue'
 import { defineStore } from 'pinia'
 
 import db from './assets/db.json'
 
 const state = () => ref({
     data: db,
+    deals: [],
+    fav: [],
     filterKey: '',
     searchValue: ''
 })
