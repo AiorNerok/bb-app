@@ -7,17 +7,26 @@ const store = useStore()
 
 const { data, filterKey, searchValue } = storeToRefs(store)
 
+const dataOnRender = data.value
+
 const DataOnRender = computed(() => {
-  let arr = data.value.filter(i => i.implementation_type.includes(filterKey.value))
-  return arr.filter(i => i.label.toLowerCase().includes(searchValue.value.toLowerCase()))
+
+  let arr = [...dataOnRender]
+  if (!!filterKey.value) {
+    arr = arr.filter(el => el.implementation_type.toLowerCase() === filterKey.value.toLowerCase())
+    console.log(arr, filterKey.value.toLowerCase())
+  }
+
+  if (!!searchValue.value) {
+    arr = arr.filter(el => el.label.toLowerCase().includes(searchValue.value.toLowerCase()))
+  }
+  return arr
 })
 
 </script>
 
 <template>
   <div>
-    <div v-for="i in DataOnRender">
-      {{ i }}
-    </div>
+    <Card v-for="i in DataOnRender" :key="i._id" :objprops="i" />
   </div>
 </template>

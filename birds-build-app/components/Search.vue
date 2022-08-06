@@ -2,7 +2,6 @@
 import { ref, watch } from 'vue'
 import { useStore } from '~/store'
 
-import SearchIcon from "@assets/search.png";
 
 const inputValue = ref('')
 
@@ -17,7 +16,7 @@ watch(inputValue, () => store.$patch({ searchValue: inputValue.value }))
   <div class="h-12 min-w-[274px] border-light-border border inline-flex items-center rounded-[10px] pr-1 pl-5">
     <input type="text" class="flex-1 text-[15px] outline-none" v-model='inputValue' />
     <button class="bg-dark-blue rounded-[10px] w-10 h-10">
-      <img :src="SearchIcon" alt="" class="w-[15px] h-[15px] mx-auto" />
+      <img src="~/assets/search.png" alt="search" class="w-[15px] h-[15px] mx-auto" />
     </button>
   </div>
 </template>
