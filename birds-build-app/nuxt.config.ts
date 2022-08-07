@@ -10,7 +10,14 @@ export default defineNuxtConfig({
         '@assets': './assets'
     }, 
     buildModules: [
-        '@pinia/nuxt',
-    ],
+        [
+          '@pinia/nuxt',
+          {
+            autoImports: [
+              ['defineStore', 'definePiniaStore'],
+            ],
+          },
+        ],
+      ],
 
 })

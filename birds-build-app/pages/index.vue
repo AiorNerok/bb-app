@@ -1,18 +1,13 @@
 <script setup>
-import { computed } from 'vue'
-import { storeToRefs } from 'pinia'
-import { useStore } from '~/store'
+import { reactive, ref, watch } from "vue";
+import { storeToRefs } from "pinia";
+import { useStore } from "~/store";
 
-const store = useStore()
-
-const DataOnRender = computed(() => {
-  return store.getFilteredData
-})
-
+const store = useStore();
 </script>
 
 <template>
   <div>
-    <Card v-for="i in DataOnRender" :key="i._id" :objprops="i" />
+    <Card v-for="i in store.filterDB()" :key="i._id" :ddb="i" />
   </div>
 </template>

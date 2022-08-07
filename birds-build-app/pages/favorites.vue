@@ -1,16 +1,11 @@
 <script setup>
-import { useStore } from '~/store'
+import { useStore } from "~/store";
 
-const store = useStore()
-
-const DataOnRender = computed(() => {
-    return store.getFilteredFav
-})
-
+const store = useStore();
 </script>
 
 <template>
-    <div>
-        <Card v-for="i in DataOnRender" :key="i._id" :objprops="i" />
-    </div>
+  <div>
+    <Card v-for="i in store.filterDB('fav')" :key="i._id" :ddb="i" />
+  </div>
 </template>
