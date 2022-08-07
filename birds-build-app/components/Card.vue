@@ -75,32 +75,29 @@ const editItemFromDB = (id, statusType, pos) =>
         </div>
       </div>
 
-      <!-- --------------------- -->
+      <!-- Button --------------------- -->
       <div class="flex justify-between">
         <template v-if="props.ddb.statusType === ''">
-          <button
-            class="text-[15px] h-[50px] px-[35px] pt-[5px] tracking-[0.2px] bg-light-gray rounded-[10px]"
-            @click="editItemFromDB(props.ddb._id, 'select', 'deals')"
+          <Button
+            @emitClickAction="editItemFromDB(props.ddb._id, 'select', 'deals')"
           >
             Добавить в сделку
-          </button>
+          </Button>
         </template>
 
         <template v-if="props.ddb.statusType === 'select'">
-          <button
-            @click="editItemFromDB(props.ddb._id, 'buy', 'deals')"
-            class="text-[15px] h-[50px] px-[35px] pt-[5px] tracking-[0.2px] flex-1 mr-3 bg-green-600 text-white rounded-[10px]"
+          <Button
+            class="bg-green-600 text-white"
+            @emitClickAction="editItemFromDB(props.ddb._id, 'buy', 'deals')"
           >
             Оплатить
-          </button>
+          </Button>
         </template>
 
         <template v-if="props.ddb.statusType === 'buy'">
-          <button
-            class="text-[15px] h-[50px] px-[35px] pt-[5px] tracking-[0.2px] bg-white text-[#969DC3] w-full rounded-[10px] border border-[#E0E3EE]"
-          >
+          <Button class="bg-white text-[#969DC3] border border-[#E0E3EE]">
             Оплачено
-          </button>
+          </Button>
         </template>
 
         <template

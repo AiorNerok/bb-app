@@ -13,7 +13,6 @@ useHead({
   htmlAttrs: {
     lang: "ru",
   },
-  // https://urlis.net/72qky
 });
 
 console.log(

@@ -1,5 +1,6 @@
 # Nuxt 3
 ## Тестовое задание на позицию «Frontend разработчик Nuxt.js»
+### [ссылка на вакансию BirdsBuild на hh.ru](https://yoshkar-ola.hh.ru/vacancy/67917566?from=negotiations_item&hhtmFrom=negotiations_item)
 
 Средствами Vue.js реализуйте небольшое SPA приложение, 
 которое состоит из 3 страниц: «Избранное», «Склад», «Сделки». 
