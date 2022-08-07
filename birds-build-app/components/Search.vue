@@ -20,7 +20,7 @@ watch(inputValue, () => setSearch(inputValue.value));
     />
     <button class="bg-dark-blue rounded-[10px] w-10 h-10">
       <img
-        src="~/assets/search.png"
+        src="~/assets/pic/search.png"
         alt="search"
         class="w-[15px] h-[15px] mx-auto"
       />

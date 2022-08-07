@@ -5,11 +5,9 @@ const props = defineProps(["ddb"]);
 
 const { updateDBItemPos } = useStore();
 
-const toDeals = (id, stype) => updateDBItemPos(id, stype, "deals");
-const toFav = (id, stype) => updateDBItemPos(id, stype, "fav");
-
 const editItemFromDB = (id, statusType, pos) =>
   updateDBItemPos(id, statusType, pos);
+
 </script>
 
 <template>
@@ -18,7 +16,7 @@ const editItemFromDB = (id, statusType, pos) =>
   >
     <div class="pt-[19px] pl-[19px] flex flex-1">
       <div class="w-64 min-w-[16rem] h-64 rounded-[10px] overflow-hidden">
-        <img src="~/assets/Image.png" alt="" class="w-full h-full" />
+        <img src="~/assets/pic/Image.png" alt="" class="w-full h-full" />
       </div>
       <div class="pl-5">
         <p class="text-light-gray text-[13px] leading-[13px] mt-1">
@@ -31,7 +29,7 @@ const editItemFromDB = (id, statusType, pos) =>
         <span
           class="relative text-[13px] leading-[13px] py-[5px] inline-flex items-center bg-light-gray pl-[27px] pr-2"
         >
-          <img src="~/assets/geo.png" alt="geo" class="absolute left-[7.5px]" />
+          <img src="~/assets/pic/geo.png" alt="geo" class="absolute left-[7.5px]" />
           {{ props.ddb.address }}</span
         >
         <div class="mt-[9px] text-[13px]">
@@ -87,7 +85,7 @@ const editItemFromDB = (id, statusType, pos) =>
           @click="editItemFromDB(props.ddb._id, 'select', 'fav')"
         >
           <img
-            src="~/assets/fav.png"
+            src="~/assets/pic/fav.png"
             alt=""
             style="transform: translate(-1px, 3px)"
           />
@@ -110,7 +108,7 @@ const editItemFromDB = (id, statusType, pos) =>
           class="bg-light-gray rounded-[10px] w-[50px] ml-3 min-w-[50px] flex items-center justify-center"
         >
           <img
-            src="~/assets/fav.png"
+            src="~/assets/pic/fav.png"
             alt=""
             style="transform: translate(-1px, 3px)"
           />

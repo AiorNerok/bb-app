@@ -3,7 +3,7 @@
 </script>
 
 <template>
-  <div class="max-w-[1200px] mx-auto">
+  <div class="max-w-[1200px] min-w-[930px] mx-auto px-5">
     <div class="bg-[#E0E3EE] h-10 w-full rounded-b-xl"></div>
     <Nav />
     <Spacer y="77" />

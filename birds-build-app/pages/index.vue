@@ -1,6 +1,4 @@
 <script setup>
-import { reactive, ref, watch } from "vue";
-import { storeToRefs } from "pinia";
 import { useStore } from "~/store";
 
 const store = useStore();

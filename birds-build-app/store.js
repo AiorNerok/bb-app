@@ -1,6 +1,6 @@
 import { defineStore } from "pinia";
 
-import dbjson from "~/assets/db.json";
+import dbjson from "~~/assets/localDB/db.json";
 
 export const useStore = defineStore("store", {
   state: () => ({
@@ -29,23 +29,9 @@ export const useStore = defineStore("store", {
       this.Search = val;
     },
     updateDBItemPos(id, st, val) {
-
-
       let idx = this.DB.findIndex((el) => el._id === id);
-      
-      if (this.DB[idx]["pos"] === 'fav') {
-        
-      } else {
-        this.DB[idx]["pos"] = val;
-      }
-
+      if (this.DB[idx]["pos"] !== "fav") this.DB[idx]["pos"] = val;
       this.DB[idx]["statusType"] = st;
-
-      // if (this.DB[idx]["statusType"] === "") {
-      //   this.DB[idx]["statusType"] = "select";
-      // } else {
-      //   this.DB[idx]["statusType"] === "select";
-      // }
     },
   },
 });
