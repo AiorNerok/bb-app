@@ -7,7 +7,6 @@ const { updateDBItemPos } = useStore();
 
 const editItemFromDB = (id, statusType, pos) =>
   updateDBItemPos(id, statusType, pos);
-
 </script>
 
 <template>
@@ -29,7 +28,11 @@ const editItemFromDB = (id, statusType, pos) =>
         <span
           class="relative text-[13px] leading-[13px] py-[5px] inline-flex items-center bg-light-gray pl-[27px] pr-2"
         >
-          <img src="~/assets/pic/geo.png" alt="geo" class="absolute left-[7.5px]" />
+          <img
+            src="~/assets/pic/geo.png"
+            alt="geo"
+            class="absolute left-[7.5px]"
+          />
           {{ props.ddb.address }}</span
         >
         <div class="mt-[9px] text-[13px]">
@@ -73,60 +76,48 @@ const editItemFromDB = (id, statusType, pos) =>
       </div>
 
       <!-- --------------------- -->
-      <div class="flex justify-between" v-if="props.ddb.statusType === ''">
-        <button
-          class="text-[15px] h-[50px] px-[35px] pt-[5px] tracking-[0.2px] bg-light-gray rounded-[10px]"
-          @click="editItemFromDB(props.ddb._id, 'select', 'deals')"
-        >
-          Добавить в сделку
-        </button>
-        <button
-          class="bg-light-gray rounded-[10px] w-[50px] flex items-center justify-center"
-          @click="editItemFromDB(props.ddb._id, 'select', 'fav')"
-        >
-          <img
-            src="~/assets/pic/fav.png"
-            alt=""
-            style="transform: translate(-1px, 3px)"
-          />
-        </button>
-      </div>
+      <div class="flex justify-between">
+        <template v-if="props.ddb.statusType === ''">
+          <button
+            class="text-[15px] h-[50px] px-[35px] pt-[5px] tracking-[0.2px] bg-light-gray rounded-[10px]"
+            @click="editItemFromDB(props.ddb._id, 'select', 'deals')"
+          >
+            Добавить в сделку
+          </button>
+        </template>
 
-      <div
-        class="flex justify-between"
-        v-if="props.ddb.statusType === 'select'"
-      >
-        <button
-          @click="editItemFromDB(props.ddb._id, 'buy', 'deals')"
-          class="text-[15px] h-[50px] px-[35px] pt-[5px] tracking-[0.2px] bg-green-600 text-white w-full rounded-[10px]"
-        >
-          Оплатить
-        </button>
-        <button
-          v-if="props.ddb.pos !== 'fav'"
-          @click="editItemFromDB(props.ddb._id, 'select', 'fav')"
-          class="bg-light-gray rounded-[10px] w-[50px] ml-3 min-w-[50px] flex items-center justify-center"
-        >
-          <img
-            src="~/assets/pic/fav.png"
-            alt=""
-            style="transform: translate(-1px, 3px)"
-          />
-        </button>
-      </div>
+        <template v-if="props.ddb.statusType === 'select'">
+          <button
+            @click="editItemFromDB(props.ddb._id, 'buy', 'deals')"
+            class="text-[15px] h-[50px] px-[35px] pt-[5px] tracking-[0.2px] flex-1 mr-3 bg-green-600 text-white rounded-[10px]"
+          >
+            Оплатить
+          </button>
+        </template>
 
-      <div
-        class="flex justify-between"
-        v-else-if="props.ddb.statusType === 'buy'"
-      >
-        <button
-          class="text-[15px] h-[50px] px-[35px] pt-[5px] tracking-[0.2px] bg-white text-[#969DC3] w-full rounded-[10px] border border-[#E0E3EE]"
-        >
-          Оплачено
-        </button>
-      </div>
+        <template v-if="props.ddb.statusType === 'buy'">
+          <button
+            class="text-[15px] h-[50px] px-[35px] pt-[5px] tracking-[0.2px] bg-white text-[#969DC3] w-full rounded-[10px] border border-[#E0E3EE]"
+          >
+            Оплачено
+          </button>
+        </template>
 
-      <!-- --------------------- -->
+        <template
+          v-if="props.ddb.pos !== 'fav' && props.ddb.statusType !== 'buy'"
+        >
+          <button
+            class="bg-light-gray rounded-[10px] w-[50px] flex items-center justify-center"
+            @click="editItemFromDB(props.ddb._id, 'select', 'fav')"
+          >
+            <img
+              src="~/assets/pic/fav.png"
+              alt=""
+              style="transform: translate(-1px, 3px)"
+            />
+          </button>
+        </template>
+      </div>
     </div>
   </div>
 </template>

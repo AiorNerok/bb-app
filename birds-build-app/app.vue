@@ -16,12 +16,15 @@ useHead({
   // https://urlis.net/72qky
 });
 
-console.log('My home pages: ', "https://bit.ly/3QrZBUQ or https://urlis.net/72qky")
-
+console.log(
+  "My home pages: ",
+  "https://bit.ly/3QrZBUQ or https://urlis.net/72qky"
+);
 </script>
 
 <template>
   <NuxtLayout>
     <NuxtPage></NuxtPage>
+    <Spacer y="30" />
   </NuxtLayout>
 </template>
