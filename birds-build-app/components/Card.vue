@@ -1,12 +1,17 @@
-<script setup>
+<script setup lang="ts">
 import { useStore } from "~/store";
 
-const props = defineProps(["ddb"]);
+import { IItemDB } from "~/models/itemdb.model";
+
+const props = defineProps<IItemDB>();
 
 const { updateDBItemPos } = useStore();
 
-const editItemFromDB = (id, statusType, pos) =>
-  updateDBItemPos(id, statusType, pos);
+const editItemFromDB = (
+  id: string,
+  statusType: "" | "select" | "buy",
+  pos: "" | "deals" | "fav"
+): void => updateDBItemPos(id, statusType, pos);
 </script>
 
 <template>
@@ -19,10 +24,10 @@ const editItemFromDB = (id, statusType, pos) =>
       </div>
       <div class="pl-5">
         <p class="text-light-gray text-[13px] leading-[13px] mt-1">
-          {{ props.ddb.implementation_type }}
+          {{ props.implementation_type }}
         </p>
         <h4 class="font-medium text-[15px] mt-[14px] tracking-[0.05px]">
-          {{ props.ddb.label }}
+          {{ props.label }}
         </h4>
         <Spacer y="27" />
         <span
@@ -33,21 +38,21 @@ const editItemFromDB = (id, statusType, pos) =>
             alt="geo"
             class="absolute left-[7.5px]"
           />
-          {{ props.ddb.address }}</span
+          {{ props.address }}</span
         >
         <div class="mt-[9px] text-[13px]">
           <span class="text-light-gray leading-[13px] mr-[2px]">Продавец </span>
-          {{ props.ddb.seller }}
+          {{ props.seller }}
         </div>
         <div
           class="bg-light-gray inline-block p-[5px] pl-[9px] pr-[7px] mt-[9px] text-[13px] rounded-[10px]"
         >
           <span class="text-light-gray leading-[13px]">Вид товара</span>
-          <p>{{ props.ddb.product_type }}</p>
+          <p>{{ props.product_type }}</p>
         </div>
         <div class="text-[13px] leading-[19.5px] mt-3">
           <p class="line-clamp-3 overflow-hidden text-ellipsis">
-            {{ props.ddb.desc }}
+            {{ props.desc }}
           </p>
         </div>
       </div>
@@ -57,55 +62,49 @@ const editItemFromDB = (id, statusType, pos) =>
     >
       <div class="flex flex-col justify-between">
         <p class="text-xl leading-5 font-medium">
-          {{
-            Intl.NumberFormat("ru-RU").format(props.ddb.price * props.ddb.count)
-          }}
-          {{ props.ddb.currency }}
+          {{ Intl.NumberFormat("ru-RU").format(props.price * props.count) }}
+          {{ props.currency }}
         </p>
         <div class="flex mt-[13px] text-[13px] justify-between">
           <span class="text-light-gray leading-[13px]">Количество</span>
-          <p class="leading-[1]">{{ props.ddb.count }} шт.</p>
+          <p class="leading-[1]">{{ props.count }} шт.</p>
         </div>
         <div class="flex justify-between mt-[11px] text-[13px]">
           <span class="text-light-gray leading-[13px]">Стоимость за штуку</span>
           <span class="leading-[13px]"
-            >{{ Intl.NumberFormat("ru-RU").format(props.ddb.price) }}
-            {{ props.ddb.currency }}</span
+            >{{ Intl.NumberFormat("ru-RU").format(props.price) }}
+            {{ props.currency }}</span
           >
         </div>
       </div>
 
       <!-- Button --------------------- -->
       <div class="flex justify-between">
-        <template v-if="props.ddb.statusType === ''">
-          <Button
-            @emitClickAction="editItemFromDB(props.ddb._id, 'select', 'deals')"
-          >
+        <template v-if="props.statusType === ''">
+          <Button @emitClickAction="editItemFromDB(props._id, '', 'deals')">
             Добавить в сделку
           </Button>
         </template>
 
-        <template v-if="props.ddb.statusType === 'select'">
+        <template v-if="props.statusType === 'select'">
           <Button
             class="bg-green-600 text-white"
-            @emitClickAction="editItemFromDB(props.ddb._id, 'buy', 'deals')"
+            @emitClickAction="editItemFromDB(props._id, 'buy', 'deals')"
           >
             Оплатить
           </Button>
         </template>
 
-        <template v-if="props.ddb.statusType === 'buy'">
+        <template v-if="props.statusType === 'buy'">
           <Button class="bg-white text-[#969DC3] border border-[#E0E3EE]">
             Оплачено
           </Button>
         </template>
 
-        <template
-          v-if="props.ddb.pos !== 'fav' && props.ddb.statusType !== 'buy'"
-        >
+        <template v-if="props.pos !== 'fav' && props.statusType !== 'buy'">
           <button
             class="bg-light-gray rounded-[10px] w-[50px] flex items-center justify-center"
-            @click="editItemFromDB(props.ddb._id, 'select', 'fav')"
+            @click="editItemFromDB(props._id, 'select', 'fav')"
           >
             <img
               src="~/assets/pic/fav.png"

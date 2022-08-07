@@ -1,0 +1,1 @@
+export interface ITabs{ id: number; label: string; origin: string }

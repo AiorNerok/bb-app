@@ -1,13 +1,14 @@
 <script setup lang="ts">
-const props = defineProps<{
-  x?: string | number
-  y?: string | number
-}>()
+import { ISpacer } from "~~/models/spacer.model";
+
+const props = defineProps<ISpacer>();
 </script>
 
 <template>
-  <div :style="{
-    width: props.x + 'px',
-    height: props.y + 'px',
-  }" />
+  <div
+    :style="{
+      width: props.x + 'px',
+      height: props.y + 'px',
+    }"
+  />
 </template>
